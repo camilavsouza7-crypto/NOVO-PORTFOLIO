@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atividades | Meu Portfólio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eadbdc, #f5e9e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    font-family: 'Poppins', sans-serif;
+    color: #57152d;
+}
+
+.apresentacao {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 760px;
+    background: #fffaf7;
+    border: 1px solid #ead8ce;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 55px rgba(85, 30, 48, .10);
+    display: flex;
+    flex-direction: column;
+}
+
+.topo {
+    height: 65px;
+    padding: 0 40px;
+    border-bottom: 1px solid #eee0d9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topo span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #78233f;
+    text-transform: uppercase;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 35px 42px;
+}
+
+.slide {
+    display: none;
+    animation: aparecer .4s ease;
+}
+
+.slide.ativo {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.identificacao {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: #a64b68;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 400;
+    color: #501327;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    font-size: 11px;
+    color: #98717b;
+    margin-bottom: 28px;
+}
+
+.grade {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ebd9d3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 7px 20px rgba(89, 35, 54, .05);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 25px rgba(89, 35, 54, .11);
+    border-color: #c58b9d;
+}
+
+.foto {
+    height: 185px;
+    background: #f3e6e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform .3s ease;
+}
+
+.foto:hover img {
+    transform: scale(1.03);
+}
+
+.sem-foto {
+    color: #a66b7d;
+    font-size: 11px;
+    text-align: center;
+    line-height: 2;
+}
+
+.sem-foto span {
+    display: block;
+    font-size: 30px;
+}
+
+.botao-foto {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 7px 13px;
+    border: 1px solid #c58b9d;
+    border-radius: 20px;
+    color: #78233f;
+    background: #fffaf7;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.botao-foto:hover {
+    background: #78233f;
+    color: white;
+}
+
+.input-foto {
+    display: none;
+}
+
+.trocar-foto {
+    position: absolute;
+    right: 9px;
+    bottom: 9px;
+    margin: 0;
+    background: rgba(255,250,247,.95);
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.card-info {
+    padding: 17px 15px 19px;
+}
+
+.eixo {
+    display: inline-block;
+    background: #f3e3e7;
+    color: #852c4b;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.card-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #57152d;
+    line-height: 1.4;
+    min-height: 48px;
+    margin-bottom: 13px;
+}
+
+.detalhes {
+    border-top: 1px solid #eee0d9;
+    padding-top: 12px;
+}
+
+.detalhes p {
+    font-size: 9px;
+    color: #98717b;
+    margin-bottom: 8px;
+}
+
+.detalhes strong {
+    color: #70223e;
+    font-weight: 500;
+}
+
+.rodape {
+    min-height: 65px;
+    padding: 0 35px;
+    border-top: 1px solid #eadbd5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fffdfb;
+}
+
+.navegacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navegacao button {
+    border: none;
+    background: transparent;
+    color: #681a37;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navegacao button:disabled {
+    opacity: .3;
+    cursor: default;
+}
+
+.indicadores {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.ponto {
+    width: 7px;
+    height: 7px;
+    border-radius: 10px;
+    background: #e8cbd3;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.ponto.ativo {
+    width: 23px;
+    background: #923b59;
+}
+
+.contador {
+    font-size: 10px;
+    color: #a16b7b;
+    letter-spacing: 1px;
+}
+
+/* FOTO AMPLIADA */
+
+.visualizador {
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 12, 25, .88);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.visualizador.ativo {
+    display: flex;
+    animation: aparecer .25s ease;
+}
+
+.visualizador img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.35);
+    background: white;
+}
+
+.fechar-visualizador {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.fechar-visualizador:hover {
+    background: #8c294b;
+    transform: rotate(90deg);
+}
+
+@media(max-width: 950px) {
+    .grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .apresentacao {
+        min-height: 850px;
+    }
+}
+
+@media(max-width: 550px) {
+    body {
+        padding: 10px;
+    }
+
+    .conteudo {
+        padding: 25px 18px;
+    }
+
+    .grade {
+        grid-template-columns: 1fr;
+    }
+
+    .topo {
+        padding: 0 18px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .rodape {
+        padding: 0 10px;
+    }
+
+    .visualizador {
+        padding: 15px;
+    }
+
+    .visualizador img {
+        max-width: 100%;
+        max-height: 80vh;
+    }
+
+    .fechar-visualizador {
+        top: 15px;
+        right: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="apresentacao">
+
+    <header class="topo">
+        <span>✦ Meu Portfólio</span>
+        <span>Atividades · 2026</span>
+    </header>
+
+    <main class="conteudo" id="conteudo"></main>
+
+    <footer class="rodape">
+
+        <div class="navegacao">
+            <button id="anterior" onclick="mudarSlide(-1)">
+                ← Voltar
+            </button>
+        </div>
+
+        <div class="indicadores" id="indicadores"></div>
+
+        <span class="contador" id="contador">01 / 05</span>
+
+        <div class="navegacao">
+            <button id="proximo" onclick="mudarSlide(1)">
+                Próximo →
+            </button>
+        </div>
+
+    </footer>
+
+</div>
+
+<div class="visualizador" id="visualizador">
+
+    <button class="fechar-visualizador" id="fecharVisualizador">
+        ×
+    </button>
+
+    <img src="" id="imagemAmpliada" alt="Atividade ampliada">
+
+</div>
+
+<script>
+
+/* ATIVIDADES */
+
+const materias = [
+
+    {
+        nome: "Linguagens",
+        atividades: [
+            { eixo: "Eixo 1", nome: "Atividade da Borboleta", professor: "Kércia Rimaelle", data: "26/01/2026", foto: "" },
+            { eixo: "Eixo 2", nome: "Black Power", professor: "Rute Almondes", data: "20/04/2026", foto: "" },
+            { eixo: "Eixo 3", nome: "Mural de Repertórios", professor: "Kércia Rimaelle", data: "03/08/2026", foto: "" },
+            { eixo: "Eixo 4", nome: "Slides de uma Obra Literária", professor: "Kércia Rimaelle", data: "04/11/2026", foto: "" }
+        ]
+    },
+
+
+
+ {
+        nome: "Humanas",
+        atividades: [
+            { eixo: "Eixo 1", nome: "Resistência Femenina", professor: "Bruno Luz", data: "19/03/2026", foto: "" },
+            { eixo: "Eixo 2", nome: "Relatório", professor: "Bruno Luz", data: "16/04/2026", foto: "" },
+            { eixo: "Eixo 3", nome: "Metáfora", professor: "Bruno Luz", data: "03/08/2026", foto: "" },
+            { eixo: "Eixo 4", nome: "Uso das Redes Sociais", professor: "Bruno Luz", data: "05/10/2026", foto: "" }
+        ]
+    },
+    
+    {
+        nome: "Natureza",
+        atividades: [
+            { eixo: "Eixo 1", nome: "Arduíno", professor: "Wallace Lima", data: "11/02/2026", foto: "" },
+            { eixo: "Eixo 2", nome: "Mapa mental de Funções Oxigenadas", professor: "Neiliane Maria", data: "15/04/2026", foto: "" },
+            { eixo: "Eixo 3", nome: "Cartaz de Carvão Mineral", professor: "Neiliane Maria", data: "05/08/2026", foto: "" },
+            { eixo: "Eixo 4", nome: "Mapa mental de Biotecnologia", professor: "Neiliane Maria", data: "22/10/2026", foto: "" }
+        ]
+    },
+
+
+    {
+        nome: "Matemática",
+        atividades: [
+            { eixo: "Eixo 1", nome: "Triângulo de Pascal", professor: "Irisneide Maria", data: "26/02/2026", foto: "" },
+            { eixo: "Eixo 2", nome: "Tipos de Gráfico", professor: "Irisneide Maria", data: "13/04/2026", foto: "" },
+            { eixo: "Eixo 3", nome: "Mapa mental de Circuferência", professor: "Regiane Leal", data: "04/08/2026", foto: "" },
+            { eixo: "Eixo 4", nome: "Mapa mental de Matriz", professor: "Regiane Leal", data: "16/11/2026", foto: "" }
+        ]
+    },
+
+    {
+        nome: "SENAI",
+        atividades: [
+            { eixo: "Atividade 1", nome: "Portfólio de imagem", professor: "Cleiton Jericó", data: "23/03/2026", foto: "" },
+            { eixo: "Atividade 2", nome: "Protótipo do Restaurante", professor: "Cleiton Jericó", data: "08/05/2026", foto: "" },
+            { eixo: "Atividade 3", nome: "So camisa", professor: "Cleiton Jericó", data: "21/08/2026", foto: "" },
+            { eixo: "Atividade 4", nome: "Gerador de Eventos", professor: "Cleiton Jericó", data: "12/10/2026", foto: "" }
+        ]
+    }
+
+];
+
+/* BANCO DE FOTOS PERMANENTE */
+
+const bancoPronto = new Promise((resolve, reject) => {
+
+    const requisicao = indexedDB.open("PortfolioCamila", 1);
+
+    requisicao.onupgradeneeded = (evento) => {
+
+        const banco = evento.target.result;
+
+        if (!banco.objectStoreNames.contains("fotos")) {
+            banco.createObjectStore("fotos", {
+                keyPath: "id"
+            });
+        }
+
+    };
+
+    requisicao.onsuccess = () => resolve(requisicao.result);
+
+    requisicao.onerror = () => reject(requisicao.error);
+
+});
+
+async function obterBanco() {
+    return bancoPronto;
+}
+
+async function salvarFoto(id, foto) {
+
+    const banco = await obterBanco();
+
+    return new Promise((resolve, reject) => {
+
+        const transacao = banco.transaction("fotos", "readwrite");
+
+        transacao.objectStore("fotos").put({
+            id: id,
+            foto: foto
+        });
+
+        transacao.oncomplete = resolve;
+
+        transacao.onerror = () => reject(transacao.error);
+
+        transacao.onabort = () => reject(transacao.error);
+
+    });
+
+}
+
+async function buscarFoto(id) {
+
+    const banco = await obterBanco();
+
+    return new Promise((resolve, reject) => {
+
+        const transacao = banco.transaction("fotos", "readonly");
+
+        const requisicao = transacao.objectStore("fotos").get(id);
+
+        requisicao.onsuccess = () => {
+
+            resolve(
+                requisicao.result
+                    ? requisicao.result.foto
+                    : ""
+            );
+
+        };
+
+        requisicao.onerror = () => reject(requisicao.error);
+
+    });
+
+}
+
+async function carregarFotosSalvas() {
+
+    for (let i = 0; i < materias.length; i++) {
+
+        for (let j = 0; j < materias[i].atividades.length; j++) {
+
+            const id = `${i}-${j}`;
+
+            const foto = await buscarFoto(id);
+
+            if (foto) {
+                materias[i].atividades[j].foto = foto;
+            }
+
+        }
+
+    }
+
+}
+
+/* SLIDES */
+
+let slideAtual = 0;
+
+const conteudo = document.getElementById("conteudo");
+
+const indicadores = document.getElementById("indicadores");
+
+function criarSlides() {
+
+    conteudo.innerHTML = "";
+    indicadores.innerHTML = "";
+
+    materias.forEach((materia, indice) => {
+
+        const slide = document.createElement("section");
+
+        slide.className = "slide";
+
+        if (indice === 0) {
+            slide.classList.add("ativo");
+        }
+
+        let cards = "";
+
+        materia.atividades.forEach((atividade, atividadeIndex) => {
+
+            const idFoto = `foto-${indice}-${atividadeIndex}`;
+
+            const imagem = atividade.foto
+                ? `<img src="${atividade.foto}" alt="Foto da atividade">`
+                : `<div class="sem-foto">
+                        <span>✧</span>
+                        Foto da atividade
+                   </div>`;
+
+            cards += `
+                <article class="card">
+
+                    <div class="foto">
+
+                        ${imagem}
+
+                        <label class="botao-foto ${atividade.foto ? 'trocar-foto' : ''}" for="${idFoto}">
+                            ${atividade.foto ? 'Trocar foto' : 'Escolher foto'}
+                        </label>
+
+                        <input
+                            class="input-foto"
+                            id="${idFoto}"
+                            type="file"
+                            accept="image/*"
+                            data-materia="${indice}"
+                            data-atividade="${atividadeIndex}"
+                        >
+
+                    </div>
+
+                    <div class="card-info">
+
+                        <span class="eixo">${atividade.eixo}</span>
+
+                        <h2>${atividade.nome}</h2>
+
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> ${atividade.professor}</p>
+                            <p><strong>Data:</strong> ${atividade.data}</p>
+                        </div>
+
+                    </div>
+
+                </article>
+            `;
+
+        });
+
+        slide.innerHTML = `
+            <span class="identificacao">Seleção de atividades · 2026</span>
+
+            <h1>${materia.nome}</h1>
+
+            <p class="subtitulo">
+                Atividades selecionadas para compor minha trajetória acadêmica.
+            </p>
+
+            <div class="grade">
+                ${cards}
+            </div>
+        `;
+
+        conteudo.appendChild(slide);
+
+        const ponto = document.createElement("span");
+
+        ponto.className = "ponto";
+
+        if (indice === 0) {
+            ponto.classList.add("ativo");
+        }
+
+        ponto.addEventListener("click", () => {
+            abrirSlide(indice);
+        });
+
+        indicadores.appendChild(ponto);
+
+    });
+
+}
+
+/* NAVEGAÇÃO */
+
+function atualizarSlide() {
+
+    const slides = document.querySelectorAll(".slide");
+
+    const pontos = document.querySelectorAll(".ponto");
+
+    slides.forEach((slide, indice) => {
+
+        slide.classList.toggle("ativo", indice === slideAtual);
+
+    });
+
+    pontos.forEach((ponto, indice) => {
+
+        ponto.classList.toggle("ativo", indice === slideAtual);
+
+    });
+
+    document.getElementById("contador").textContent =
+        String(slideAtual + 1).padStart(2, "0") +
+        " / " +
+        String(materias.length).padStart(2, "0");
+
+    document.getElementById("anterior").disabled =
+        slideAtual === 0;
+
+    document.getElementById("proximo").disabled =
+        slideAtual === materias.length - 1;
+
+}
+
+function mudarSlide(direcao) {
+
+    const novo = slideAtual + direcao;
+
+    if (novo >= 0 && novo < materias.length) {
+
+        slideAtual = novo;
+
+        atualizarSlide();
+
+    }
+
+}
+
+function abrirSlide(indice) {
+
+    slideAtual = indice;
+
+    atualizarSlide();
+
+}
+
+/* ESCOLHER E SALVAR FOTO */
+
+conteudo.addEventListener("change", async (evento) => {
+
+    if (!evento.target.classList.contains("input-foto")) {
+        return;
+    }
+
+    const arquivo = evento.target.files[0];
+
+    if (!arquivo) return;
+
+    if (!arquivo.type.startsWith("image/")) {
+
+        alert("Selecione um arquivo de imagem.");
+
+        evento.target.value = "";
+
+        return;
+
+    }
+
+    const materiaIndex = Number(evento.target.dataset.materia);
+
+    const atividadeIndex = Number(evento.target.dataset.atividade);
+
+    const leitor = new FileReader();
+
+    leitor.onload = async () => {
+
+        const foto = leitor.result;
+
+        const id = `${materiaIndex}-${atividadeIndex}`;
+
+        try {
+
+            await salvarFoto(id, foto);
+
+            materias[materiaIndex].atividades[atividadeIndex].foto = foto;
+
+            const areaFoto = evento.target.closest(".foto");
+
+            const imagemExistente = areaFoto.querySelector("img");
+
+            if (imagemExistente) {
+
+                imagemExistente.src = foto;
+
+            } else {
+
+                areaFoto.querySelector(".sem-foto").outerHTML = `
+                    <img src="${foto}" alt="Foto da atividade">
+                `;
+
+            }
+
+            const botao = areaFoto.querySelector(".botao-foto");
+
+            botao.textContent = "Trocar foto";
+
+            botao.classList.add("trocar-foto");
+
+        } catch (erro) {
+
+            alert("Não foi possível salvar a foto.");
+
+            console.error("Erro ao salvar foto:", erro);
+
+        }
+
+        evento.target.value = "";
+
+    };
+
+    leitor.onerror = () => {
+        alert("Não foi possível ler essa imagem.");
+    };
+
+    leitor.readAsDataURL(arquivo);
+
+});
+
+/* AMPLIAR FOTO */
+
+const visualizador = document.getElementById("visualizador");
+
+const imagemAmpliada = document.getElementById("imagemAmpliada");
+
+const fecharVisualizador = document.getElementById("fecharVisualizador");
+
+conteudo.addEventListener("click", (evento) => {
+
+    const imagem = evento.target.closest(".foto img");
+
+    if (imagem) {
+
+        imagemAmpliada.src = imagem.src;
+
+        visualizador.classList.add("ativo");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+});
+
+function fecharImagem() {
+
+    visualizador.classList.remove("ativo");
+
+    imagemAmpliada.src = "";
+
+    document.body.style.overflow = "";
+
+}
+
+fecharVisualizador.addEventListener("click", fecharImagem);
+
+visualizador.addEventListener("click", (evento) => {
+
+    if (evento.target === visualizador) {
+        fecharImagem();
+    }
+
+});
+
+/* TECLADO */
+
+document.addEventListener("keydown", (evento) => {
+
+    if (evento.key === "Escape") {
+        fecharImagem();
+    }
+
+    if (!visualizador.classList.contains("ativo")) {
+
+        if (evento.key === "ArrowRight") {
+            mudarSlide(1);
+        }
+
+        if (evento.key === "ArrowLeft") {
+            mudarSlide(-1);
+        }
+
+    }
+
+});
+
+/* INICIALIZAÇÃO */
+
+async function iniciarPortfolio() {
+
+    try {
+
+        await carregarFotosSalvas();
+
+    } catch (erro) {
+
+        console.error("Erro ao recuperar fotos:", erro);
+
+    }
+
+    criarSlides();
+
+    atualizarSlide();
+
+}
+
+iniciarPortfolio();
+
+</script>
+
+</body>
+</html>

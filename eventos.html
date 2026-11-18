@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Camila Vitória</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="stili.css">
+    <link rel="stylesheet" href="palette.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 35px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eadbdc, #f3e8e3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container-sobre {
+            width: 96%;
+            max-width: 1400px;
+            min-height: 620px;
+            background: #fffaf6;
+            border: 1px solid #ead8ce;
+            border-radius: 26px;
+            box-shadow: 0 20px 55px rgba(80, 19, 39, .10);
+
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr) 230px;
+            align-items: center;
+            gap: 45px;
+
+            padding: 75px 65px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* FOTO */
+
+        .foto-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .moldura-arco {
+            width: 190px;
+            height: 245px;
+            padding: 11px;
+            border: 1px solid #c59b70;
+            border-radius: 110px 110px 14px 14px;
+            background: #fffdfb;
+            box-shadow: 0 12px 30px rgba(80, 19, 39, .08);
+        }
+
+        .moldura-arco img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 100px 100px 9px 9px;
+            cursor: zoom-in;
+            transition: .3s;
+        }
+
+        .moldura-arco img:hover {
+            transform: scale(1.025);
+        }
+
+        /* CONTEÚDO */
+
+        .conteudo-container {
+            min-width: 0;
+        }
+
+        .subtitulo {
+            display: block;
+            color: #a64b68;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3.5px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 54px;
+            font-weight: 400;
+            color: #501327;
+            margin: 0 0 25px;
+        }
+
+        .texto-descricao {
+            font-size: 14px;
+            font-weight: 300;
+            color: #775d65;
+            line-height: 2.1;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .destaque {
+            color: #872d4b;
+            font-weight: 600;
+        }
+
+        .divisor {
+            border: none;
+            height: 1px;
+            background: #ead8ce;
+            margin: 32px 0;
+        }
+
+        /* CARDS */
+
+        .cards-flex {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .card-info {
+            min-height: 125px;
+            border: 1px solid #ead8ce;
+            background: #fffdfb;
+            border-radius: 14px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 17px 10px;
+            transition: .3s;
+        }
+
+        .card-info:hover {
+            transform: translateY(-5px);
+            border-color: #c58b9d;
+            box-shadow: 0 10px 22px rgba(80, 19, 39, .08);
+        }
+
+        .card-info i {
+            color: #a64b68;
+            font-size: 25px;
+            margin-bottom: 13px;
+        }
+
+        .card-dado {
+            color: #501327;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .card-rotulo {
+            color: #a64b68;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 9px;
+        }
+
+        /* BONECA */
+
+        .avatar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-container img {
+            width: 215px;
+            max-height: 390px;
+            object-fit: contain;
+            cursor: zoom-in;
+            transition: .3s;
+        }
+
+        .avatar-container img:hover {
+            transform: translateY(-6px);
+        }
+
+        /* MODAL */
+
+        .modal-imagem {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(38, 12, 23, .92);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .modal-imagem.aberto {
+            display: flex;
+            animation: aparecer .25s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-imagem img {
+            max-width: 88%;
+            max-height: 82vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, .3);
+            background: #fffaf6;
+        }
+
+        .fechar-modal {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255,255,255,.5);
+            border-radius: 50%;
+            background: rgba(255,255,255,.12);
+            color: white;
+            font-size: 29px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .fechar-modal:hover {
+            background: #872d4b;
+            transform: rotate(90deg);
+        }
+
+        #legendaImagem {
+            position: absolute;
+            bottom: 15px;
+            color: white;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 1050px) {
+            .container-sobre {
+                grid-template-columns: 175px minmax(0, 1fr) 165px;
+                gap: 25px;
+                padding: 55px 35px;
+            }
+
+            .moldura-arco {
+                width: 155px;
+                height: 205px;
+            }
+
+            .avatar-container img {
+                width: 165px;
+            }
+
+            .titulo {
+                font-size: 43px;
+            }
+
+            .texto-descricao {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 750px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container-sobre {
+                width: 100%;
+                min-height: auto;
+                grid-template-columns: 1fr;
+                padding: 40px 25px;
+                gap: 30px;
+            }
+
+            .foto-container {
+                grid-row: 1;
+            }
+
+            .conteudo-container {
+                grid-row: 2;
+            }
+
+            .avatar-container {
+                grid-row: 3;
+            }
+
+            .titulo {
+                font-size: 39px;
+            }
+
+            .moldura-arco {
+                width: 155px;
+                height: 195px;
+            }
+
+            .avatar-container img {
+                width: 180px;
+                max-height: 240px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .cards-flex {
+                gap: 7px;
+            }
+
+            .card-info {
+                min-height: 105px;
+                padding: 10px 4px;
+            }
+
+            .card-dado {
+                font-size: 10px;
+            }
+
+            .card-rotulo {
+                font-size: 7px;
+            }
+
+            .titulo {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="container-sobre">
+
+        <div class="foto-container">
+            <div class="moldura-arco">
+                <img src="./img/eu.png" alt="Camila Vitória" class="imagem-clicavel">
+            </div>
+        </div>
+
+        <div class="conteudo-container">
+
+            <span class="subtitulo">Sobre Mim</span>
+
+            <h1 class="titulo">Quem sou eu</h1>
+
+            <p class="texto-descricao">
+                Me chamo Camila Vitória e tenho como minha filiação Aline Almondes e Carlos de Sousa Almondes.
+            </p>
+
+            <p class="texto-descricao">
+                Me encontro na <span class="destaque">Terceira série do ensino médio</span> e estou cursando o curso <span class="destaque">Técnico de informática para internet</span> que o Senai oferece.
+            </p>
+
+            <hr class="divisor">
+
+            <div class="cards-flex">
+
+                <div class="card-info">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span class="card-dado">12/06/2008</span>
+                    <span class="card-rotulo">Nascimento</span>
+                </div>
+
+                <div class="card-info">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="card-dado">17 anos</span>
+                    <span class="card-rotulo">Idade</span>
+                </div>
+
+                <div class="card-info">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="card-dado">Picos, PI</span>
+                    <span class="card-rotulo">Localização</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="avatar-container">
+            <img src="./img/boneca.png" alt="Avatar ilustrativo" class="imagem-clicavel">
+        </div>
+
+    </section>
+
+    <div id="modalImagem" class="modal-imagem">
+
+        <button class="fechar-modal" id="fecharModal" aria-label="Fechar imagem">
+            &times;
+        </button>
+
+        <img id="imagemAmpliada" src="" alt="Imagem ampliada">
+
+        <p id="legendaImagem"></p>
+
+    </div>
+
+    <script>
+        const modal = document.getElementById("modalImagem");
+        const imagemAmpliada = document.getElementById("imagemAmpliada");
+        const legenda = document.getElementById("legendaImagem");
+        const fechar = document.getElementById("fecharModal");
+
+        document.querySelectorAll(".imagem-clicavel").forEach(imagem => {
+            imagem.addEventListener("click", () => {
+                imagemAmpliada.src = imagem.src;
+                legenda.textContent = imagem.alt;
+                modal.classList.add("aberto");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        function fecharImagem() {
+            modal.classList.remove("aberto");
+            imagemAmpliada.src = "";
+            document.body.style.overflow = "";
+        }
+
+        fechar.addEventListener("click", fecharImagem);
+
+        modal.addEventListener("click", evento => {
+            if (evento.target === modal) {
+                fecharImagem();
+            }
+        });
+
+        document.addEventListener("keydown", evento => {
+            if (evento.key === "Escape") {
+                fecharImagem();
+            }
+        });
+    </script>
+
+</body>
+</html>

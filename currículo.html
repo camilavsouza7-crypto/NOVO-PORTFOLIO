@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo | Camila Vitória</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --vinho: #501327;
+    --vinho-claro: #792d48;
+    --rosa: #ad7182;
+    --fundo: #f0e2de;
+    --papel: #fffaf6;
+    --linha: #e8d5ce;
+    --texto: #66515a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--fundo);
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto);
+    padding: 35px 15px;
+}
+
+.curriculo {
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    background: var(--papel);
+    box-shadow: 0 15px 50px rgba(70, 20, 40, .10);
+    position: relative;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    min-height: 47mm;
+    background: var(--fundo);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.cabecalho .identificacao {
+    color: var(--rosa);
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.cabecalho h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--vinho);
+    font-size: 31px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.detalhe-cabecalho {
+    width: 45px;
+    height: 2px;
+    background: var(--rosa);
+    margin-top: 17px;
+}
+
+/* CONTEÚDO */
+
+.conteudo {
+    display: grid;
+    grid-template-columns: 34% 66%;
+    padding: 30px 35px 35px;
+    gap: 0;
+}
+
+/* COLUNA LATERAL */
+
+.lateral {
+    padding: 0 28px 0 5px;
+    border-right: 1px solid var(--linha);
+}
+
+.foto-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.foto {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 3px 15px rgba(80, 19, 39, .12);
+}
+
+.secao {
+    margin-bottom: 25px;
+}
+
+.secao-titulo {
+    font-family: 'Playfair Display', serif;
+    color: var(--vinho);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.secao p {
+    font-size: 10px;
+    line-height: 1.9;
+    color: var(--texto);
+    overflow-wrap: anywhere;
+}
+
+.contato-item {
+    margin-bottom: 9px;
+}
+
+.contato-item strong {
+    color: var(--vinho-claro);
+    font-weight: 500;
+}
+
+.lista-lateral {
+    list-style: none;
+}
+
+.lista-lateral li {
+    padding: 7px 0;
+    border-bottom: 1px solid var(--linha);
+    font-size: 10px;
+    color: var(--texto);
+}
+
+/* COLUNA PRINCIPAL */
+
+.principal {
+    padding-left: 29px;
+}
+
+.bloco {
+    margin-bottom: 25px;
+}
+
+.titulo-bloco {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Playfair Display', serif;
+    color: var(--vinho);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 13px;
+}
+
+.titulo-bloco::after {
+    content: "";
+    height: 1px;
+    background: var(--linha);
+    flex: 1;
+}
+
+.descricao {
+    font-size: 10px;
+    line-height: 2;
+    color: var(--texto);
+    text-align: justify;
+}
+
+.formacao-item {
+    margin-bottom: 15px;
+}
+
+.formacao-item h3 {
+    font-size: 10px;
+    color: var(--vinho);
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.formacao-item p {
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.status {
+    display: inline-block;
+    font-size: 8px;
+    color: var(--rosa);
+    font-style: italic;
+    margin-top: 3px;
+}
+
+.experiencia-item {
+    margin-bottom: 12px;
+}
+
+.experiencia-item h3 {
+    color: var(--vinho);
+    font-size: 10px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.experiencia-item p {
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--texto);
+}
+
+.conquistas {
+    list-style: none;
+}
+
+.conquistas li {
+    position: relative;
+    padding-left: 17px;
+    margin-bottom: 12px;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.conquistas li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rosa);
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
+
+.conquistas strong {
+    display: block;
+    color: var(--vinho);
+    font-weight: 600;
+}
+
+.conquistas span {
+    color: var(--texto);
+}
+
+/* RODAPÉ */
+
+.rodape {
+    min-height: 35px;
+    border-top: 1px solid var(--linha);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.rodape p {
+    font-size: 8px;
+    color: var(--rosa);
+    letter-spacing: .5px;
+}
+
+/* IMPRESSÃO */
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        padding: 0;
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .curriculo {
+        width: 210mm;
+        min-height: 297mm;
+        box-shadow: none;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    body {
+        padding: 10px;
+    }
+
+    .curriculo {
+        width: 100%;
+    }
+
+    .cabecalho h1 {
+        font-size: 24px;
+    }
+
+    .conteudo {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .lateral {
+        border-right: none;
+        border-bottom: 1px solid var(--linha);
+        padding: 0 0 20px;
+    }
+
+    .principal {
+        padding: 25px 0 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="curriculo">
+
+    <header class="cabecalho">
+
+        <span class="identificacao">Currículo profissional</span>
+
+        <h1>
+            Camila Vitória<br>
+            Almondes Souza
+        </h1>
+
+        <div class="detalhe-cabecalho"></div>
+
+    </header>
+
+    <main class="conteudo">
+
+        <!-- COLUNA LATERAL -->
+
+        <aside class="lateral">
+
+            <div class="foto-container">
+                <img
+                    src="./img/eu.png"
+                    alt="Foto de Camila Vitória"
+                    class="foto"
+                >
+            </div>
+
+            <section class="secao">
+
+                <h2 class="secao-titulo">Perfil</h2>
+
+                <p>
+                    Estudante dedicada e proativa. Busco crescer pessoal
+                    e profissionalmente, desenvolvendo minhas habilidades
+                    e conhecimentos.
+                </p>
+
+            </section>
+
+            <section class="secao">
+
+                <h2 class="secao-titulo">Contato</h2>
+
+                <div class="contato-item">
+                    <p><strong>Telefone</strong></p>
+                    <p>(89) 99444-8076</p>
+                </div>
+
+                <div class="contato-item">
+                    <p><strong>E-mail</strong></p>
+                    <p>seuemail@gmail.com</p>
+                </div>
+
+                <div class="contato-item">
+                    <p><strong>Localização</strong></p>
+                    <p>Picos - PI, Brasil</p>
+                </div>
+
+            </section>
+
+            <section class="secao">
+
+                <h2 class="secao-titulo">Habilidades</h2>
+
+                <ul class="lista-lateral">
+                    <li>Trabalho em equipe</li>
+                    <li>Proatividade</li>
+                    <li>Resiliência</li>
+                    <li>Organização</li>
+                </ul>
+
+            </section>
+
+            <section class="secao">
+
+              
+        </aside>
+
+        <!-- COLUNA PRINCIPAL -->
+
+        <div class="principal">
+
+            <section class="bloco">
+
+                <h2 class="titulo-bloco">Objetivo profissional</h2>
+
+                <p class="descricao">
+                    Busco oportunidades que me permitam adquirir novos
+                    conhecimentos, desenvolver minhas habilidades e
+                    evoluir profissionalmente, contribuindo com dedicação,
+                    responsabilidade e vontade de aprender.
+                </p>
+
+            </section>
+
+            <section class="bloco">
+
+                <h2 class="titulo-bloco">Formação acadêmica</h2>
+
+                <div class="formacao-item">
+
+                    <h3>ENSINO MÉDIO</h3>
+
+                    <p>Escola SESI Wilma Catão Araújo</p>
+
+                    <span class="status">Em andamento</span>
+
+                </div>
+
+                <div class="formacao-item">
+
+                    <h3>TÉCNICO EM INFORMÁTICA PARA INTERNET</h3>
+
+                    <p>
+                        Formação técnica integrada ao Ensino Médio.
+                    </p>
+
+                    <span class="status">Em andamento</span>
+
+                </div>
+
+            </section>
+
+            <section class="bloco">
+
+                <h2 class="titulo-bloco">
+                    Experiências e participações
+                </h2>
+
+                <div class="experiencia-item">
+
+                    <h3>I Mostra SESI de Iniciação Científica e Tecnológica</h3>
+
+                </div>
+
+                <div class="experiencia-item">
+
+                    <h3>II Mostra Científica</h3>
+
+                    <p>
+                        Como a tecnologia pode auxiliar no aprendizado.
+                    </p>
+
+                </div>
+
+                <div class="experiencia-item">
+
+                    <h3>III Mostra Científica</h3>
+
+                    <p>
+                        Sustentabilidade nas Cidades do Futuro.
+                    </p>
+
+                </div>
+
+                <div class="experiencia-item">
+
+                    <h3>IV Mostra Científica</h3>
+
+                    <p>
+                        Ambiente educacional que acolhe, protege e
+                        impulsiona a aprendizagem — 3º lugar.
+                    </p>
+
+                </div>
+
+                <div class="experiencia-item">
+
+                    <h3>V Mostra Científica</h3>
+
+                    <p>
+                        Ideias inovadoras para uma indústria sustentável —
+                        1º e 2º lugares em nível escolar e 2º lugar nível estadual.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <section class="bloco">
+
+                <h2 class="titulo-bloco">
+                    Certificados e conquistas
+                </h2>
+
+                <ul class="conquistas">
+
+                    <li>
+                        <strong>OBA</strong>
+                        <span>
+                            Olimpíada Brasileira de Astronomia e Astronáutica
+                        </span>
+                    </li>
+
+                    <li>
+                        <strong>OBR</strong>
+                        <span>
+                            Olimpíada Brasileira de Robótica
+                        </span>
+                    </li>
+
+                    <li>
+                        <strong>OBMEP</strong>
+                        <span>
+                            Olimpíada Brasileira de Matemática das Escolas Públicas
+                        </span>
+                    </li>
+
+                    <li>
+                        <strong>Grand Prix SENAI</strong>
+                        <span>
+                            Conquista do 1º lugar
+                        </span>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+
+        <p>
+            © 2026 Camila Vitória. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+</div>
+
+</body>
+</html>

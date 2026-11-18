@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PPE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Jost', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#f8dfe8;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:48px 24px;
+      color:#5e4b52;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:100%;
+      max-width:1180px;
+      background:#fdfaf6;
+      border:1px solid rgba(176,141,87,.35);
+      border-radius:38px;
+      padding:52px;
+      box-shadow:0 24px 60px rgba(74,16,32,.10);
+      position:relative;
+      z-index:2;
+    }
+
+    /* TÍTULO */
+
+    .titulo{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      font-size:.7rem;
+      letter-spacing:.32em;
+      text-transform:uppercase;
+      color:#9c4a5c;
+      font-weight:500;
+      margin-bottom:12px;
+    }
+
+    .titulo h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(2.8rem, 6vw, 4.4rem);
+      font-weight:700;
+      color:#4a1020;
+      letter-spacing:.08em;
+      line-height:1;
+    }
+
+    .titulo p{
+      color:#8a6a6e;
+      font-size:1rem;
+      font-weight:400;
+      margin-top:10px;
+    }
+
+    .line{
+      width:240px;
+      height:1px;
+      background:#ddb2c0;
+      margin:18px auto 0;
+      position:relative;
+    }
+
+    .line::after{
+      content:"✦";
+      position:absolute;
+      top:-13px;
+      left:50%;
+      transform:translateX(-50%);
+      background:#fdfaf6;
+      padding:0 12px;
+      color:#b08d57;
+      font-size:17px;
+    }
+
+    /* LEGENDA */
+
+    .legenda{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:26px;
+    }
+
+    .legenda-item{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 15px;
+      border-radius:999px;
+      background:#fbf6f1;
+      border:1px solid rgba(176,141,87,.3);
+      font-size:.78rem;
+      font-weight:500;
+      color:#7a2439;
+      letter-spacing:.02em;
+    }
+
+    .dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      border:1px solid rgba(176,141,87,.45);
+    }
+
+    .dot.estudo{ background:#fdfaf6; }
+    .dot.escola{ background:#f4e7e1; }
+    .dot.curso{ background:#f8efe9; }
+    .dot.horario{ background:#efe1dc; }
+
+    /* TABELA */
+
+    .tabela-wrapper{
+      background:rgba(251,246,241,.65);
+      border:1px solid rgba(176,141,87,.22);
+      border-radius:26px;
+      padding:18px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .grade{
+      display:grid;
+      grid-template-columns:158px repeat(5, 1fr);
+      gap:10px;
+      min-width:820px;
+    }
+
+    .card{
+      background:#fff5f8;
+      border:1px solid rgba(176,141,87,.18);
+      border-radius:16px;
+      padding:16px 12px;
+      min-height:86px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+
+      font-size:.9rem;
+      font-weight:500;
+      line-height:1.4;
+      color:#5e4b52;
+
+      box-shadow:0 4px 10px rgba(74,16,32,.03);
+
+      transition:transform .28s ease, box-shadow .28s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 24px rgba(74,16,32,.10);
+    }
+
+    .header{
+      background:#5c1a2e;
+      color:#fbf6f1;
+      font-size:.95rem;
+      font-weight:600;
+      letter-spacing:.05em;
+      min-height:60px;
+      border-radius:14px;
+      border-color:#5c1a2e;
+      box-shadow:inset 0 -2px 0 rgba(176,141,87,.55);
+    }
+
+    .time{
+      background:#efe1dc;
+      color:#4a1020;
+      font-weight:600;
+      letter-spacing:.03em;
+      font-size:.86rem;
+      padding:16px 10px;
+    }
+
+    .study{
+      background:#fdfaf6;
+      box-shadow:inset 0 2px 0 rgba(176,141,87,.4), 0 4px 10px rgba(74,16,32,.03);
+    }
+
+    .school{
+      background:#f4e7e1;
+      box-shadow:inset 0 2px 0 rgba(92,26,46,.22), 0 4px 10px rgba(74,16,32,.03);
+    }
+
+    .course{
+      background:#f8efe9;
+      box-shadow:inset 0 2px 0 rgba(156,74,92,.24), 0 4px 10px rgba(74,16,32,.03);
+    }
+
+    .dica{
+      display:none;
+      text-align:center;
+      font-size:.78rem;
+      color:#9c4a5c;
+      margin-top:16px;
+      letter-spacing:.04em;
+    }
+
+    /* LOGOS */
+
+    .logos-lateral{
+      position:fixed;
+      top:18px;
+      right:18px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      z-index:100;
+    }
+
+    .logos-lateral img{
+      width:88px;
+      background:rgba(255,255,255,.8);
+      padding:6px;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(74,16,32,.10);
+      transition:transform .3s ease;
+    }
+
+    .logos-lateral img:hover{
+      transform:translateY(-3px);
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:900px){
+
+      body{
+        padding:28px 16px;
+      }
+
+      .container{
+        padding:34px 22px;
+        border-radius:28px;
+      }
+
+      .tabela-wrapper{
+        padding:12px;
+        border-radius:20px;
+      }
+
+      .grade{
+        grid-template-columns:132px repeat(5, 1fr);
+        gap:8px;
+        min-width:720px;
+      }
+
+      .card{
+        min-height:74px;
+        font-size:.82rem;
+        padding:12px 10px;
+      }
+
+      .header{
+        font-size:.85rem;
+      }
+
+      .dica{
+        display:block;
+      }
+
+      .logos-lateral{
+        top:10px;
+        right:10px;
+      }
+
+      .logos-lateral img{
+        width:64px;
+      }
+    }
+
+  </style>
+  <link rel="stylesheet" href="palette.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="titulo">
+      <span class="eyebrow">Organização semanal</span>
+      <h1>PPE</h1>
+      <p>Planejamento Pessoal de Estudos</p>
+      <div class="line"></div>
+    </div>
+
+    <div class="legenda">
+
+      <span class="legenda-item"><span class="dot horario"></span>Horário</span>
+      <span class="legenda-item"><span class="dot estudo"></span>Estudo e revisão</span>
+      <span class="legenda-item"><span class="dot escola"></span>SESI e SENAI</span>
+      <span class="legenda-item"><span class="dot curso"></span>Curso e aulão</span>
+
+    </div>
+
+    <div class="tabela-wrapper">
+
+      <div class="grade">
+
+        <div class="card header">Horário</div>
+        <div class="card header">Segunda</div>
+        <div class="card header">Terça</div>
+        <div class="card header">Quarta</div>
+        <div class="card header">Quinta</div>
+        <div class="card header">Sexta</div>
+
+        <div class="card time">08:00 às 10:00</div>
+
+        <div class="card study">Estudo e revisão</div>
+        <div class="card study">Estudo e revisão</div>
+        <div class="card study">Estudo e revisão</div>
+        <div class="card study">Estudo e revisão</div>
+        <div class="card study">Estudo e revisão</div>
+
+        <div class="card time">13:00 às 18:20</div>
+
+        <div class="card school">SESI e SENAI</div>
+        <div class="card school">SESI e SENAI</div>
+        <div class="card school">SESI e SENAI</div>
+        <div class="card school">SESI e SENAI</div>
+        <div class="card school">SENAI</div>
+
+        <div class="card time">18:20 às 21:35</div>
+
+        <div class="card course">Curso</div>
+        <div class="card course">Aulão</div>
+        <div class="card course">Aulão</div>
+        <div class="card course">Aulão</div>
+        <div class="card study">Estudo</div>
+
+      </div>
+
+    </div>
+
+    <p class="dica">Deslize para o lado para ver a semana completa</p>
+
+  </div>
+
+  <div class="logos-lateral">
+
+    <img src="./img/logo senai.png" alt="Senai">
+
+    <img src="./img/logo.png" alt="Sesi">
+
+  </div>
+
+</body>
+</html>

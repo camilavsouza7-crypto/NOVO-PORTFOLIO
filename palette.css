@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+/* =====================================================
+   PALETA ÚNICA DO PORTFÓLIO
+   Altere os valores abaixo para mudar todas as páginas.
+   ===================================================== */
+
+:root {
+    --vinho-escuro: #4a1020;
+    --vinho: #5c1a2e;
+    --vinho-medio: #7a2439;
+    --vinho-suave: #9c4a5c;
+    --bordo-claro: #c08a93;
+    --dourado: #b08d57;
+    --dourado-claro: #d4b483;
+    --creme: #fbf6f1;
+    --marfim: #fdfaf6;
+    --blush: #efe1dc;
+    --texto: #3a2229;
+    --texto-suave: #8a6a6e;
+    --sombra: rgba(74, 16, 32, 0.10);
+    --borda: rgba(176, 141, 87, 0.30);
+}
+
+/* BASE */
+
+html {
+    background: #ebddd8;
+}
+
+body,
+.pink-slides-page {
+    background: linear-gradient(135deg, #ebddd8, #f7efea) !important;
+    color: var(--texto) !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* TIPOGRAFIA */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.titulo,
+.textos h1,
+.nome,
+.end-signature {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: var(--vinho-escuro) !important;
+    letter-spacing: 0.02em;
+}
+
+p,
+li,
+label,
+.texto-descricao,
+.conteudo p,
+.card-texto p,
+.conteudo-anexo p {
+    font-family: 'Jost', sans-serif !important;
+    color: var(--texto-suave) !important;
+}
+
+div,
+a,
+span,
+strong,
+b,
+small,
+blockquote,
+figcaption {
+    font-family: 'Jost', sans-serif !important;
+}
+
+.titulo-eixo,
+.data,
+input,
+textarea,
+select,
+button {
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* DESTAQUES E DETALHES DOURADOS */
+
+.eyebrow,
+.subtitulo,
+.identificacao,
+.card-rotulo,
+.destaque,
+.frase span,
+.tech-reminder,
+.edit-hint {
+    color: var(--vinho-suave) !important;
+}
+
+.linha,
+.line,
+.traco,
+.detalhe,
+.linha-separadora span:first-child,
+.linha-separadora span:last-child {
+    background-color: var(--dourado) !important;
+}
+
+.line::after {
+    background: var(--marfim) !important;
+    color: var(--dourado) !important;
+}
+
+.divisor,
+.linha-decorativa {
+    background-color: var(--borda) !important;
+    border-color: var(--borda) !important;
+}
+
+/* LINKS */
+
+a {
+    color: var(--vinho);
+}
+
+a:hover {
+    color: var(--vinho-medio);
+}
+
+/* CARTÕES E SUPERFÍCIES CLARAS */
+
+.card,
+.box,
+.card-info,
+.card-final,
+.card-anexo,
+.card-texto,
+.card-dado,
+.pagina,
+.curriculo,
+.folha,
+.content,
+.container-anexos,
+.container-sobre,
+.center,
+.cartao,
+.portrait-card,
+.goal-card,
+.subject-card,
+.quote-card,
+.tech-stamp,
+.conteudo-anexo {
+    background-color: var(--marfim) !important;
+    border-color: var(--borda) !important;
+}
+
+.icone-final,
+.icon,
+.circulo,
+.sun-disc {
+    background: var(--blush) !important;
+    color: var(--vinho) !important;
+    border-color: var(--dourado) !important;
+}
+
+/* PÁGINAS DE MATÉRIA */
+
+.container:has(.topo) {
+    background: var(--marfim) !important;
+    border-color: var(--borda) !important;
+}
+
+.topo {
+    background: transparent !important;
+    border-color: var(--borda) !important;
+}
+
+.topo::before {
+    background: linear-gradient(to bottom, var(--vinho), var(--vinho-medio)) !important;
+}
+
+.circulo span,
+.flor {
+    color: var(--vinho-suave) !important;
+}
+
+.titulo-eixo {
+    background: var(--vinho) !important;
+    color: var(--creme) !important;
+    box-shadow: 0 6px 15px rgba(92, 26, 46, 0.20) !important;
+}
+
+.data {
+    background: var(--marfim) !important;
+    color: var(--texto-suave) !important;
+}
+
+/* OBJETIVOS / CONTEÚDO */
+
+.content {
+    background: var(--creme) !important;
+}
+
+/* PPE */
+
+.header {
+    background: var(--vinho) !important;
+    color: var(--creme) !important;
+    border-color: var(--vinho) !important;
+}
+
+.time {
+    background: var(--blush) !important;
+    color: var(--vinho-escuro) !important;
+}
+
+.study {
+    background: var(--marfim) !important;
+}
+
+.school {
+    background: #f4e7e1 !important;
+}
+
+.course {
+    background: #f8efe9 !important;
+}
+
+/* PROJETO DE VIDA */
+
+.blur1 {
+    background: #e6cfc7 !important;
+}
+
+.blur2 {
+    background: #f0ddd6 !important;
+}
+
+.blur3 {
+    background: #f7ebe5 !important;
+}
+
+.card::before {
+    background: var(--blush) !important;
+}
+
+.card::after {
+    background: #f7ebe5 !important;
+}
+
+.box h2,
+.frase span {
+    color: var(--vinho) !important;
+}
+
+/* ANEXOS / PERFIL / EVENTOS */
+
+.anexos {
+    background: transparent !important;
+}
+
+.anexos h1,
+.cabecalho-anexos h1,
+.card-texto h3,
+.card-anexo h2,
+.card-final h2,
+.conteudo-anexo h2,
+.titulo {
+    color: var(--vinho-escuro) !important;
+}
+
+.card-final a {
+    background: var(--vinho) !important;
+    color: var(--creme) !important;
+}
+
+.card-final a:hover {
+    background: var(--vinho-medio) !important;
+}
+
+.moldura-arco {
+    border-color: var(--dourado) !important;
+}
+
+/* CURRÍCULO */
+
+.cabecalho {
+    background: var(--blush) !important;
+}
+
+.nome-container {
+    border-color: var(--vinho) !important;
+}
+
+.nome-container span {
+    background: var(--vinho) !important;
+    color: var(--creme) !important;
+}
+
+.lateral {
+    border-color: var(--borda) !important;
+}
+
+.bloco-lateral h2,
+.secao > h2 {
+    border-color: var(--vinho) !important;
+    color: var(--vinho-escuro) !important;
+}
+
+.marcador {
+    background: var(--dourado) !important;
+}
+
+.item span {
+    color: var(--texto-suave) !important;
+}
+
+footer {
+    border-color: var(--borda) !important;
+    color: var(--texto-suave) !important;
+}
+
+/* CONSIDERAÇÕES FINAIS */
+
+.pagina {
+    background: var(--marfim) !important;
+    border-color: var(--borda) !important;
+}
+
+.rodape {
+    border-color: var(--borda) !important;
+}
+
+.copyright {
+    color: var(--texto-suave) !important;
+}
+
+/* PORTFÓLIO (SLIDES) */
+
+.portfolio-slides {
+    --wine: var(--vinho) !important;
+    --rose: var(--vinho-suave) !important;
+    --pale: var(--blush) !important;
+    --cream: var(--marfim) !important;
+    border-color: var(--borda) !important;
+}
+
+.topline,
+.slide-bottom,
+.edition {
+    color: var(--vinho-suave) !important;
+}
+
+.eyebrow,
+h1 em,
+h2 em,
+.spark {
+    color: var(--vinho-suave) !important;
+}
+
+.pill,
+.tech-tags span {
+    background: var(--creme) !important;
+    border-color: var(--borda) !important;
+    color: var(--vinho) !important;
+}
+
+.cover-name {
+    color: var(--vinho) !important;
+}
+
+.numero {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: var(--vinho-suave) !important;
+}
+
+/* LOGIN */
+
+.center {
+    background: var(--marfim) !important;
+    box-shadow: 0 25px 60px var(--sombra) !important;
+    border: 1px solid var(--borda);
+}
+
+.center h1 {
+    color: var(--vinho-escuro) !important;
+    border-bottom-color: var(--borda) !important;
+}
+
+.text_field {
+    border-bottom-color: var(--vinho) !important;
+}
+
+.text_field label,
+.pass,
+.signup_link,
+.signup_link a {
+    color: var(--texto-suave) !important;
+}
+
+.text_field input:focus ~ label,
+.text_field input:valid ~ label {
+    color: var(--vinho-suave) !important;
+}
+
+.btn-conectar {
+    background: var(--vinho) !important;
+    border-color: var(--vinho) !important;
+    color: var(--creme) !important;
+}
+
+.btn-conectar:hover {
+    background: var(--vinho-medio) !important;
+}
+
+.btn-cancelar {
+    background: transparent !important;
+    border-color: var(--vinho) !important;
+    color: var(--vinho) !important;
+}
+
+.btn-cancelar:hover {
+    background: var(--vinho) !important;
+    color: var(--creme) !important;
+}

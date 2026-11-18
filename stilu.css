@@ -1,0 +1,440 @@
+.anexos {
+    width: 100%;
+    min-height: 100vh;
+    padding: 60px 20px;
+    background: #f7efea;
+}
+/* TÍTULO */
+
+.anexos h1 {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 55px;
+    color: #5c1a2e;
+    margin-bottom: 15px;
+}
+
+
+/* DESCRIÇÃO */
+
+.descricao {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+    color: #8a6a6e;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* CARDS DOS EVENTOS */
+.cards {
+    width: 100%;
+    max-width: 1060px;
+    margin: 0 auto;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 320px);
+    justify-content: center;
+    
+    gap: 30px;
+}
+
+.card {
+    background: #fdfaf6;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 20px rgba(92, 26, 46, 0.12);
+
+    transition: 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(92, 26, 46, 0.20);
+}
+
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+
+    transition: 0.4s;
+}
+
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+
+.card-texto {
+    padding: 18px 20px;
+    background: #fdfaf6;
+}
+
+
+.card-texto h3 {
+    color: #5c1a2e;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+
+.card-texto p {
+    color: #8a6a6e;
+    font-size: 13px;
+}
+
+
+/* LINHA SEPARADORA */
+
+.linha-separadora {
+    width: 100%;
+    max-width: 700px;
+    margin: 60px auto 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+.linha-separadora span:first-child,
+.linha-separadora span:last-child {
+    width: 100%;
+    height: 1px;
+    background: #c08a93;
+}
+
+
+.coracao {
+    color: #5c1a2e;
+    font-size: 16px;
+}
+
+
+/* ÁREA DOS CARDS FINAIS */
+
+.cards-finais {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto 60px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* CARD FINAL */
+
+.card-final {
+    background: #fdfaf6;
+
+    border: 1px solid #e2cfc8;
+    border-radius: 18px;
+
+    padding: 30px 25px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 20px rgba(92, 26, 46, 0.10);
+
+    transition: 0.3s ease;
+}
+
+
+.card-final:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 30px rgba(92, 26, 46, 0.16);
+}
+
+
+/* ÍCONES */
+
+.icone-final {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #efe1dc;
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+
+/* TÍTULO DOS CARDS */
+
+.card-final h2 {
+    margin: 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+
+    color: #5c1a2e;
+}
+
+
+/* PEQUENO TRAÇO */
+
+.traco {
+    width: 40px;
+    height: 2px;
+
+    background: #c08a93;
+
+    margin: 18px auto;
+}
+
+
+/* TEXTO */
+
+.card-final p {
+    margin: 0 0 25px;
+
+    color: #8a6a6e;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    min-height: 95px;
+}
+
+
+/* BOTÕES */
+
+.card-final a {
+    display: inline-block;
+
+    padding: 11px 22px;
+
+    background: #5c1a2e;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+}
+
+
+.card-final a:hover {
+    background: #7a2439;
+    transform: translateY(-2px);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards-finais {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .anexos {
+        padding: 40px 20px;
+    }
+
+    .anexos h1 {
+        font-size: 42px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #f7efea;
+    font-family: 'Jost', sans-serif;
+    color: #3a2229;
+    padding: 35px 24px;
+}
+
+.container-anexos {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 55px 45px 60px;
+    background: #fdfaf6;
+    border: 1px solid #e2cfc8;
+    border-radius: 30px;
+    box-shadow: 0 15px 45px rgba(92, 26, 46, 0.07);
+}
+
+.cabecalho-anexos {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 42px;
+}
+
+.cabecalho-anexos h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 600;
+    color: #5c1a2e;
+    margin-bottom: 14px;
+    letter-spacing: -1px;
+}
+
+.cabecalho-anexos p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #8a6a6e;
+}
+
+.grade-anexos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px 22px;
+    width: 100%;
+}
+
+.card-anexo {
+    min-width: 0;
+    overflow: hidden;
+    background: #fdfaf6;
+    border: 1px solid #e2cfc8;
+    border-radius: 18px;
+    box-shadow: 0 7px 20px rgba(92, 26, 46, 0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-anexo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 13px 28px rgba(92, 26, 46, 0.13);
+}
+
+.card-anexo img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    object-position: center;
+    background: #efe1dc;
+}
+
+.conteudo-anexo {
+    padding: 20px 18px 22px;
+    min-height: 112px;
+}
+
+.conteudo-anexo h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #5c1a2e;
+    margin-bottom: 9px;
+    line-height: 1.4;
+}
+
+.conteudo-anexo p {
+    color: #8a6a6e;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1100px) {
+    .container-anexos {
+        padding: 40px 28px;
+    }
+
+    .grade-anexos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .card-anexo img {
+        height: 175px;
+    }
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 15px;
+    }
+
+    .container-anexos {
+        padding: 35px 18px;
+        border-radius: 22px;
+    }
+
+    .cabecalho-anexos {
+        margin-bottom: 30px;
+    }
+
+    .cabecalho-anexos p {
+        font-size: 13px;
+    }
+
+    .grade-anexos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .card-anexo img {
+        height: 145px;
+    }
+
+    .conteudo-anexo {
+        padding: 15px 12px 18px;
+    }
+
+    .conteudo-anexo h2 {
+        font-size: 16px;
+    }
+
+    .conteudo-anexo p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 430px) {
+    .grade-anexos {
+        grid-template-columns: 1fr;
+    }
+
+    .card-anexo img {
+        height: 220px;
+    }
+}
