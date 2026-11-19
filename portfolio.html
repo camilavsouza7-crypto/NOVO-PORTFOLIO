@@ -40,7 +40,7 @@ body {
 }
 
 .topo {
-    height: 65px;
+    min-height: 65px;
     padding: 0 40px;
     border-bottom: 1px solid #eee0d9;
     display: flex;
@@ -82,6 +82,7 @@ body {
 }
 
 .identificacao {
+    display: block;
     font-size: 9px;
     letter-spacing: 2.5px;
     color: #a64b68;
@@ -106,7 +107,7 @@ h1 {
 
 .grade {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 17px;
 }
 
@@ -117,6 +118,7 @@ h1 {
     overflow: hidden;
     box-shadow: 0 7px 20px rgba(89, 35, 54, .05);
     transition: .3s;
+    min-width: 0;
 }
 
 .card:hover {
@@ -128,11 +130,11 @@ h1 {
 .foto {
     height: 185px;
     background: #f3e6e7;
+    overflow: hidden;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    position: relative;
 }
 
 .foto img {
@@ -148,48 +150,16 @@ h1 {
     transform: scale(1.03);
 }
 
-.sem-foto {
+.foto .sem-foto {
+    display: none;
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
     color: #a66b7d;
     font-size: 11px;
     text-align: center;
-    line-height: 2;
-}
-
-.sem-foto span {
-    display: block;
-    font-size: 30px;
-}
-
-.botao-foto {
-    display: inline-block;
-    margin-top: 7px;
-    padding: 7px 13px;
-    border: 1px solid #c58b9d;
-    border-radius: 20px;
-    color: #78233f;
-    background: #fffaf7;
-    font-family: 'Poppins', sans-serif;
-    font-size: 9px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.botao-foto:hover {
-    background: #78233f;
-    color: white;
-}
-
-.input-foto {
-    display: none;
-}
-
-.trocar-foto {
-    position: absolute;
-    right: 9px;
-    bottom: 9px;
-    margin: 0;
-    background: rgba(255,250,247,.95);
-    box-shadow: 0 2px 8px rgba(0,0,0,.12);
 }
 
 .card-info {
@@ -247,7 +217,6 @@ h1 {
 .navegacao {
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
 .navegacao button {
@@ -339,6 +308,8 @@ h1 {
     transform: rotate(90deg);
 }
 
+/* RESPONSIVIDADE */
+
 @media(max-width: 950px) {
     .grade {
         grid-template-columns: repeat(2, 1fr);
@@ -352,6 +323,7 @@ h1 {
 @media(max-width: 550px) {
     body {
         padding: 10px;
+        align-items: flex-start;
     }
 
     .conteudo {
@@ -366,12 +338,23 @@ h1 {
         padding: 0 18px;
     }
 
+    .topo span {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
     h1 {
         font-size: 36px;
     }
 
     .rodape {
-        padding: 0 10px;
+        padding: 0 5px;
+        gap: 3px;
+    }
+
+    .navegacao button {
+        font-size: 9px;
+        padding: 8px 4px;
     }
 
     .visualizador {
@@ -400,14 +383,379 @@ h1 {
         <span>Atividades · 2026</span>
     </header>
 
-    <main class="conteudo" id="conteudo"></main>
+    <main class="conteudo" id="conteudo">
+
+        <!-- LINGUAGENS -->
+
+        <section class="slide ativo">
+
+            <span class="identificacao">Seleção de atividades · 2026</span>
+            <h1>Linguagens</h1>
+            <p class="subtitulo">Atividades selecionadas para compor minha trajetória acadêmica.</p>
+
+            <div class="grade">
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/12.png" alt="Atividade da Borboleta" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 1</span>
+                        <h2>Atividade da Borboleta</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Kércia Rimaelle</p>
+                            <p><strong>Data:</strong> 26/01/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/17.png" alt="Black Power" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 2</span>
+                        <h2>Black Power</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Rute Almondes</p>
+                            <p><strong>Data:</strong> 20/04/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/mural.png" alt="Mural de Repertórios" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 3</span>
+                        <h2>Mural de Repertórios</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Kércia Rimaelle</p>
+                            <p><strong>Data:</strong> 03/08/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/luvro.png" alt="Slides de uma Obra Literária" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 4</span>
+                        <h2>Slides de uma Obra Literária</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Kércia Rimaelle</p>
+                            <p><strong>Data:</strong> 04/11/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- HUMANAS -->
+
+        <section class="slide">
+
+            <span class="identificacao">Seleção de atividades · 2026</span>
+            <h1>Humanas</h1>
+            <p class="subtitulo">Atividades selecionadas para compor minha trajetória acadêmica.</p>
+
+            <div class="grade">
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/hum.5.png" alt="Resistência Feminina" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 1</span>
+                        <h2>Resistência Femenina</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Bruno Luz</p>
+                            <p><strong>Data:</strong> 19/03/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/HUM.png" alt="Relatório" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 2</span>
+                        <h2>Relatório</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Bruno Luz</p>
+                            <p><strong>Data:</strong> 16/04/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/bioetica.png" alt="Metáfora" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 3</span>
+                        <h2>Metáfora</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Bruno Luz</p>
+                            <p><strong>Data:</strong> 03/08/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/celular.png" alt="Uso das Redes Sociais" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 4</span>
+                        <h2>Uso das Redes Sociais</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Bruno Luz</p>
+                            <p><strong>Data:</strong> 05/10/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- NATUREZA -->
+
+        <section class="slide">
+
+            <span class="identificacao">Seleção de atividades · 2026</span>
+            <h1>Natureza</h1>
+            <p class="subtitulo">Atividades selecionadas para compor minha trajetória acadêmica.</p>
+
+            <div class="grade">
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/natur9.png" alt="Arduíno" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 1</span>
+                        <h2>Arduíno</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Wallace Lima</p>
+                            <p><strong>Data:</strong> 11/02/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/28.png" alt="Mapa mental de Funções Oxigenadas" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 2</span>
+                        <h2>Mapa mental de Funções Oxigenadas</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Neiliane Maria</p>
+                            <p><strong>Data:</strong> 15/04/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/cartaz.png" alt="Cartaz de Carvão Mineral" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 3</span>
+                        <h2>Cartaz de Carvão Mineral</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Neiliane Maria</p>
+                            <p><strong>Data:</strong> 05/08/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/bioecnlogia.png" alt="Mapa mental de Biotecnologia" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 4</span>
+                        <h2>Mapa mental de Biotecnologia</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Neiliane Maria</p>
+                            <p><strong>Data:</strong> 22/10/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MATEMÁTICA -->
+
+        <section class="slide">
+
+            <span class="identificacao">Seleção de atividades · 2026</span>
+            <h1>Matemática</h1>
+            <p class="subtitulo">Atividades selecionadas para compor minha trajetória acadêmica.</p>
+
+            <div class="grade">
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/34.png" alt="Triângulo de Pascal" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 1</span>
+                        <h2>Triângulo de Pascal</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Irisneide Maria</p>
+                            <p><strong>Data:</strong> 26/02/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/37.png" alt="Tipos de Gráfico" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 2</span>
+                        <h2>Tipos de Gráfico</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Irisneide Maria</p>
+                            <p><strong>Data:</strong> 13/04/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src=".//img/circuferencia.png" alt="Mapa mental de Circunferência" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 3</span>
+                        <h2>Mapa mental de Circunferência</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Regiane Leal</p>
+                            <p><strong>Data:</strong> 04/08/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/matriz.png" alt="Mapa mental de Matriz" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Eixo 4</span>
+                        <h2>Mapa mental de Matriz</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Regiane Leal</p>
+                            <p><strong>Data:</strong> 16/11/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SENAI -->
+
+        <section class="slide">
+
+            <span class="identificacao">Seleção de atividades · 2026</span>
+            <h1>SENAI</h1>
+            <p class="subtitulo">Atividades selecionadas para compor minha trajetória acadêmica.</p>
+
+            <div class="grade">
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/Portfolio.png" alt="Portfólio de imagem" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Atividade 1</span>
+                        <h2>Portfólio de imagem</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Cleiton Jericó</p>
+                            <p><strong>Data:</strong> 23/03/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/3.png" alt="Protótipo do Restaurante" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Atividade 2</span>
+                        <h2>Protótipo do Restaurante</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Cleiton Jericó</p>
+                            <p><strong>Data:</strong> 08/05/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/socamisa.png" alt="Só camisa" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Atividade 3</span>
+                        <h2>So camisa</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Cleiton Jericó</p>
+                            <p><strong>Data:</strong> 21/08/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="foto">
+                        <img src="./img/evento.png" alt="Gerador de Eventos" loading="lazy">
+                        <div class="sem-foto">Fotografia não encontrada</div>
+                    </div>
+                    <div class="card-info">
+                        <span class="eixo">Atividade 4</span>
+                        <h2>Gerador de Eventos</h2>
+                        <div class="detalhes">
+                            <p><strong>Professor(a):</strong> Cleiton Jericó</p>
+                            <p><strong>Data:</strong> 12/10/2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
 
     <footer class="rodape">
 
         <div class="navegacao">
-            <button id="anterior" onclick="mudarSlide(-1)">
-                ← Voltar
-            </button>
+            <button id="anterior">← Voltar</button>
         </div>
 
         <div class="indicadores" id="indicadores"></div>
@@ -415,14 +763,14 @@ h1 {
         <span class="contador" id="contador">01 / 05</span>
 
         <div class="navegacao">
-            <button id="proximo" onclick="mudarSlide(1)">
-                Próximo →
-            </button>
+            <button id="proximo">Próximo →</button>
         </div>
 
     </footer>
 
 </div>
+
+<!-- VISUALIZADOR DE FOTOS -->
 
 <div class="visualizador" id="visualizador">
 
@@ -436,302 +784,53 @@ h1 {
 
 <script>
 
-/* ATIVIDADES */
-
-const materias = [
-
-    {
-        nome: "Linguagens",
-        atividades: [
-            { eixo: "Eixo 1", nome: "Atividade da Borboleta", professor: "Kércia Rimaelle", data: "26/01/2026", foto: "" },
-            { eixo: "Eixo 2", nome: "Black Power", professor: "Rute Almondes", data: "20/04/2026", foto: "" },
-            { eixo: "Eixo 3", nome: "Mural de Repertórios", professor: "Kércia Rimaelle", data: "03/08/2026", foto: "" },
-            { eixo: "Eixo 4", nome: "Slides de uma Obra Literária", professor: "Kércia Rimaelle", data: "04/11/2026", foto: "" }
-        ]
-    },
-
-
-
- {
-        nome: "Humanas",
-        atividades: [
-            { eixo: "Eixo 1", nome: "Resistência Femenina", professor: "Bruno Luz", data: "19/03/2026", foto: "" },
-            { eixo: "Eixo 2", nome: "Relatório", professor: "Bruno Luz", data: "16/04/2026", foto: "" },
-            { eixo: "Eixo 3", nome: "Metáfora", professor: "Bruno Luz", data: "03/08/2026", foto: "" },
-            { eixo: "Eixo 4", nome: "Uso das Redes Sociais", professor: "Bruno Luz", data: "05/10/2026", foto: "" }
-        ]
-    },
-    
-    {
-        nome: "Natureza",
-        atividades: [
-            { eixo: "Eixo 1", nome: "Arduíno", professor: "Wallace Lima", data: "11/02/2026", foto: "" },
-            { eixo: "Eixo 2", nome: "Mapa mental de Funções Oxigenadas", professor: "Neiliane Maria", data: "15/04/2026", foto: "" },
-            { eixo: "Eixo 3", nome: "Cartaz de Carvão Mineral", professor: "Neiliane Maria", data: "05/08/2026", foto: "" },
-            { eixo: "Eixo 4", nome: "Mapa mental de Biotecnologia", professor: "Neiliane Maria", data: "22/10/2026", foto: "" }
-        ]
-    },
-
-
-    {
-        nome: "Matemática",
-        atividades: [
-            { eixo: "Eixo 1", nome: "Triângulo de Pascal", professor: "Irisneide Maria", data: "26/02/2026", foto: "" },
-            { eixo: "Eixo 2", nome: "Tipos de Gráfico", professor: "Irisneide Maria", data: "13/04/2026", foto: "" },
-            { eixo: "Eixo 3", nome: "Mapa mental de Circuferência", professor: "Regiane Leal", data: "04/08/2026", foto: "" },
-            { eixo: "Eixo 4", nome: "Mapa mental de Matriz", professor: "Regiane Leal", data: "16/11/2026", foto: "" }
-        ]
-    },
-
-    {
-        nome: "SENAI",
-        atividades: [
-            { eixo: "Atividade 1", nome: "Portfólio de imagem", professor: "Cleiton Jericó", data: "23/03/2026", foto: "" },
-            { eixo: "Atividade 2", nome: "Protótipo do Restaurante", professor: "Cleiton Jericó", data: "08/05/2026", foto: "" },
-            { eixo: "Atividade 3", nome: "So camisa", professor: "Cleiton Jericó", data: "21/08/2026", foto: "" },
-            { eixo: "Atividade 4", nome: "Gerador de Eventos", professor: "Cleiton Jericó", data: "12/10/2026", foto: "" }
-        ]
-    }
-
-];
-
-/* BANCO DE FOTOS PERMANENTE */
-
-const bancoPronto = new Promise((resolve, reject) => {
-
-    const requisicao = indexedDB.open("PortfolioCamila", 1);
-
-    requisicao.onupgradeneeded = (evento) => {
-
-        const banco = evento.target.result;
-
-        if (!banco.objectStoreNames.contains("fotos")) {
-            banco.createObjectStore("fotos", {
-                keyPath: "id"
-            });
-        }
-
-    };
-
-    requisicao.onsuccess = () => resolve(requisicao.result);
-
-    requisicao.onerror = () => reject(requisicao.error);
-
-});
-
-async function obterBanco() {
-    return bancoPronto;
-}
-
-async function salvarFoto(id, foto) {
-
-    const banco = await obterBanco();
-
-    return new Promise((resolve, reject) => {
-
-        const transacao = banco.transaction("fotos", "readwrite");
-
-        transacao.objectStore("fotos").put({
-            id: id,
-            foto: foto
-        });
-
-        transacao.oncomplete = resolve;
-
-        transacao.onerror = () => reject(transacao.error);
-
-        transacao.onabort = () => reject(transacao.error);
-
-    });
-
-}
-
-async function buscarFoto(id) {
-
-    const banco = await obterBanco();
-
-    return new Promise((resolve, reject) => {
-
-        const transacao = banco.transaction("fotos", "readonly");
-
-        const requisicao = transacao.objectStore("fotos").get(id);
-
-        requisicao.onsuccess = () => {
-
-            resolve(
-                requisicao.result
-                    ? requisicao.result.foto
-                    : ""
-            );
-
-        };
-
-        requisicao.onerror = () => reject(requisicao.error);
-
-    });
-
-}
-
-async function carregarFotosSalvas() {
-
-    for (let i = 0; i < materias.length; i++) {
-
-        for (let j = 0; j < materias[i].atividades.length; j++) {
-
-            const id = `${i}-${j}`;
-
-            const foto = await buscarFoto(id);
-
-            if (foto) {
-                materias[i].atividades[j].foto = foto;
-            }
-
-        }
-
-    }
-
-}
-
-/* SLIDES */
+/* NAVEGAÇÃO DOS SLIDES */
 
 let slideAtual = 0;
 
-const conteudo = document.getElementById("conteudo");
-
+const slides = document.querySelectorAll(".slide");
 const indicadores = document.getElementById("indicadores");
+const contador = document.getElementById("contador");
+const anterior = document.getElementById("anterior");
+const proximo = document.getElementById("proximo");
 
-function criarSlides() {
+slides.forEach((slide, indice) => {
 
-    conteudo.innerHTML = "";
-    indicadores.innerHTML = "";
+    const ponto = document.createElement("span");
 
-    materias.forEach((materia, indice) => {
+    ponto.className = "ponto";
 
-        const slide = document.createElement("section");
+    if (indice === 0) {
+        ponto.classList.add("ativo");
+    }
 
-        slide.className = "slide";
-
-        if (indice === 0) {
-            slide.classList.add("ativo");
-        }
-
-        let cards = "";
-
-        materia.atividades.forEach((atividade, atividadeIndex) => {
-
-            const idFoto = `foto-${indice}-${atividadeIndex}`;
-
-            const imagem = atividade.foto
-                ? `<img src="${atividade.foto}" alt="Foto da atividade">`
-                : `<div class="sem-foto">
-                        <span>✧</span>
-                        Foto da atividade
-                   </div>`;
-
-            cards += `
-                <article class="card">
-
-                    <div class="foto">
-
-                        ${imagem}
-
-                        <label class="botao-foto ${atividade.foto ? 'trocar-foto' : ''}" for="${idFoto}">
-                            ${atividade.foto ? 'Trocar foto' : 'Escolher foto'}
-                        </label>
-
-                        <input
-                            class="input-foto"
-                            id="${idFoto}"
-                            type="file"
-                            accept="image/*"
-                            data-materia="${indice}"
-                            data-atividade="${atividadeIndex}"
-                        >
-
-                    </div>
-
-                    <div class="card-info">
-
-                        <span class="eixo">${atividade.eixo}</span>
-
-                        <h2>${atividade.nome}</h2>
-
-                        <div class="detalhes">
-                            <p><strong>Professor(a):</strong> ${atividade.professor}</p>
-                            <p><strong>Data:</strong> ${atividade.data}</p>
-                        </div>
-
-                    </div>
-
-                </article>
-            `;
-
-        });
-
-        slide.innerHTML = `
-            <span class="identificacao">Seleção de atividades · 2026</span>
-
-            <h1>${materia.nome}</h1>
-
-            <p class="subtitulo">
-                Atividades selecionadas para compor minha trajetória acadêmica.
-            </p>
-
-            <div class="grade">
-                ${cards}
-            </div>
-        `;
-
-        conteudo.appendChild(slide);
-
-        const ponto = document.createElement("span");
-
-        ponto.className = "ponto";
-
-        if (indice === 0) {
-            ponto.classList.add("ativo");
-        }
-
-        ponto.addEventListener("click", () => {
-            abrirSlide(indice);
-        });
-
-        indicadores.appendChild(ponto);
-
+    ponto.addEventListener("click", () => {
+        abrirSlide(indice);
     });
 
-}
+    indicadores.appendChild(ponto);
 
-/* NAVEGAÇÃO */
+});
 
 function atualizarSlide() {
-
-    const slides = document.querySelectorAll(".slide");
 
     const pontos = document.querySelectorAll(".ponto");
 
     slides.forEach((slide, indice) => {
-
         slide.classList.toggle("ativo", indice === slideAtual);
-
     });
 
     pontos.forEach((ponto, indice) => {
-
         ponto.classList.toggle("ativo", indice === slideAtual);
-
     });
 
-    document.getElementById("contador").textContent =
+    contador.textContent =
         String(slideAtual + 1).padStart(2, "0") +
         " / " +
-        String(materias.length).padStart(2, "0");
+        String(slides.length).padStart(2, "0");
 
-    document.getElementById("anterior").disabled =
-        slideAtual === 0;
-
-    document.getElementById("proximo").disabled =
-        slideAtual === materias.length - 1;
+    anterior.disabled = slideAtual === 0;
+    proximo.disabled = slideAtual === slides.length - 1;
 
 }
 
@@ -739,12 +838,9 @@ function mudarSlide(direcao) {
 
     const novo = slideAtual + direcao;
 
-    if (novo >= 0 && novo < materias.length) {
-
+    if (novo >= 0 && novo < slides.length) {
         slideAtual = novo;
-
         atualizarSlide();
-
     }
 
 }
@@ -752,106 +848,24 @@ function mudarSlide(direcao) {
 function abrirSlide(indice) {
 
     slideAtual = indice;
-
     atualizarSlide();
 
 }
 
-/* ESCOLHER E SALVAR FOTO */
+anterior.addEventListener("click", () => mudarSlide(-1));
+proximo.addEventListener("click", () => mudarSlide(1));
 
-conteudo.addEventListener("change", async (evento) => {
-
-    if (!evento.target.classList.contains("input-foto")) {
-        return;
-    }
-
-    const arquivo = evento.target.files[0];
-
-    if (!arquivo) return;
-
-    if (!arquivo.type.startsWith("image/")) {
-
-        alert("Selecione um arquivo de imagem.");
-
-        evento.target.value = "";
-
-        return;
-
-    }
-
-    const materiaIndex = Number(evento.target.dataset.materia);
-
-    const atividadeIndex = Number(evento.target.dataset.atividade);
-
-    const leitor = new FileReader();
-
-    leitor.onload = async () => {
-
-        const foto = leitor.result;
-
-        const id = `${materiaIndex}-${atividadeIndex}`;
-
-        try {
-
-            await salvarFoto(id, foto);
-
-            materias[materiaIndex].atividades[atividadeIndex].foto = foto;
-
-            const areaFoto = evento.target.closest(".foto");
-
-            const imagemExistente = areaFoto.querySelector("img");
-
-            if (imagemExistente) {
-
-                imagemExistente.src = foto;
-
-            } else {
-
-                areaFoto.querySelector(".sem-foto").outerHTML = `
-                    <img src="${foto}" alt="Foto da atividade">
-                `;
-
-            }
-
-            const botao = areaFoto.querySelector(".botao-foto");
-
-            botao.textContent = "Trocar foto";
-
-            botao.classList.add("trocar-foto");
-
-        } catch (erro) {
-
-            alert("Não foi possível salvar a foto.");
-
-            console.error("Erro ao salvar foto:", erro);
-
-        }
-
-        evento.target.value = "";
-
-    };
-
-    leitor.onerror = () => {
-        alert("Não foi possível ler essa imagem.");
-    };
-
-    leitor.readAsDataURL(arquivo);
-
-});
-
-/* AMPLIAR FOTO */
+/* FOTO AMPLIADA */
 
 const visualizador = document.getElementById("visualizador");
-
 const imagemAmpliada = document.getElementById("imagemAmpliada");
-
 const fecharVisualizador = document.getElementById("fecharVisualizador");
 
-conteudo.addEventListener("click", (evento) => {
+document.getElementById("conteudo").addEventListener("click", (evento) => {
 
     const imagem = evento.target.closest(".foto img");
 
-    if (imagem) {
+    if (imagem && imagem.complete && imagem.naturalWidth > 0) {
 
         imagemAmpliada.src = imagem.src;
 
@@ -883,6 +897,24 @@ visualizador.addEventListener("click", (evento) => {
 
 });
 
+/* IMAGEM NÃO ENCONTRADA */
+
+document.querySelectorAll(".foto img").forEach((imagem) => {
+
+    imagem.addEventListener("error", () => {
+
+        imagem.style.display = "none";
+
+        const aviso = imagem.nextElementSibling;
+
+        if (aviso) {
+            aviso.style.display = "flex";
+        }
+
+    });
+
+});
+
 /* TECLADO */
 
 document.addEventListener("keydown", (evento) => {
@@ -907,25 +939,7 @@ document.addEventListener("keydown", (evento) => {
 
 /* INICIALIZAÇÃO */
 
-async function iniciarPortfolio() {
-
-    try {
-
-        await carregarFotosSalvas();
-
-    } catch (erro) {
-
-        console.error("Erro ao recuperar fotos:", erro);
-
-    }
-
-    criarSlides();
-
-    atualizarSlide();
-
-}
-
-iniciarPortfolio();
+atualizarSlide();
 
 </script>
 
